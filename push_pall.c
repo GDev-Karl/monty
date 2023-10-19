@@ -5,7 +5,7 @@
  * @stack: This is the stack
  * @n: this is the item to be inserted in the stack
  */
-void push(stack_t **stack, int n)
+void push(stack_t **stack, unsigned int n)
 {
 	stack_t *new_node = malloc(sizeof(stack_t));
 

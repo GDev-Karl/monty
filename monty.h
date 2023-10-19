@@ -3,6 +3,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#define STACK 0
+#define QUEUE 1
+#define DELIMS " \n\t\a\b"
+
+extern char **op_toks;
 
 
 /**
@@ -35,8 +40,28 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-void push(stack_t **stack, int n);
+void push(stack_t **stack, unsigned int n);
 void pall(stack_t **stack, unsigned int line_number);
 
+/* error.c */
+int error_with_usage(void);
+int failed_open(char *filename);
+int malloc_error(void);
+int unknown_op_error(char *opcode, unsigned int line_number);
+
+/* run.c */
+void free_tokens(void);
+unsigned int token_arr_len(void);
+int is_empty_line(char *line, char *delims);
+void (*get_op_func(char *opcode))(stack_t**, unsigned int);
+int execute_monty(FILE *script_fd);
+
+/* stack_functions.c */
+int init_stack(stack_t **stack);
+void free_stack(stack_t **stack);
+
+
+/* tokenization.c */
+char **strtow(char *str, char *delims);
 
 #endif
