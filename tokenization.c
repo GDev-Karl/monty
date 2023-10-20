@@ -54,11 +54,11 @@ char **separate_words(char *str, char *delims)
 			words[i][n] = *(str + n);
 			n++;
 		}
-		words[i][n] = '\0'; 
+		words[i][n] = '\0';
 		str = next_word(str, delims);
 		i++;
 	}
-	words[i] = NULL; 
+	words[i] = NULL;
 	return (words);
 }
 

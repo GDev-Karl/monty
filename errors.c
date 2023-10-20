@@ -11,14 +11,20 @@ int error_with_usage(void)
 	return (EXIT_FAILURE);
 }
 
+/**
+ * failed_open - cannot open a file
+ * @file_name: the name of the file
+ *
+ * Return: EXIT_FAILURE
+ */
 int failed_open(char *file_name)
 {
-    fprintf(stderr, "Can't open file %s\n", file_name);
-    return (EXIT_FAILURE);
+	fprintf(stderr, "Can't open file %s\n", file_name);
+	return (EXIT_FAILURE);
 }
 
 /**
- * malloc_error - Prints malloc error messages.
+ * allocation_error - malloc failed
  *
  * Return: (EXIT_FAILURE) always.
  */
@@ -29,7 +35,7 @@ int allocation_error(void)
 }
 
 /**
- * unknown_instruction - Prints unknown instruction where 
+ * unknown_instruction - Prints unknown instruction where
  * @opcode: Opcode where error occurred.
  * @line_number: Line number in Monty file
  *

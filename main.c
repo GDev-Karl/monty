@@ -36,7 +36,7 @@ int main(void)
 	fclose(fp);
 
 	return (0);
-} 
+}
 */
 
 #include "monty.h"
@@ -44,7 +44,7 @@ int main(void)
 #include <sys/stat.h>
 #include <fcntl.h>
 
-char **op_tokens = NULL;
+op_toks = NULL;
 
 /**
  * main - the entry point for Monty Interp

@@ -27,7 +27,7 @@ unsigned int token_len(void)
 
 	while (op_tokens[sizeof_tokens])
 		sizeof_tokens++;
-    
+
 	return (sizeof_tokens);
 }
 
