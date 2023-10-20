@@ -37,8 +37,8 @@ typedef struct stack_s
  */
 typedef struct instruction_s
 {
-	char *opcode;
-	void (*f)(stack_t **stack, unsigned int line_number);
+        char *opcode;
+        void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
 
@@ -50,8 +50,7 @@ void set_argument_error(int error_code);
 char *get_string(int num);
 unsigned int abs_value(int);
 int get_len_base(unsigned int num, unsigned int base);
-void fill_numbase_buff(unsigned int num, unsigned int base,
-		char *buff, int buff_size);
+void fill_numbase_buff(unsigned int num, unsigned int base, char *buff, int buff_size);
 
 
 /* error.c */
