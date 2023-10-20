@@ -1,5 +1,6 @@
 #ifndef MONTY_H
 #define MONTY_H
+#define _POSIX_C_SOURCE 200809L
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -7,7 +8,7 @@
 #define QUEUE 1
 #define DELIMS " \n\t\a\b"
 
-extern char **op_toks;
+extern char **op_tokens;
 
 
 /**
@@ -40,28 +41,50 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-void push(stack_t **stack, unsigned int n);
-void pall(stack_t **stack, unsigned int line_number);
+
+/* argument_error.c */
+void set_argument_error(int error_code);
+
+
+/* convertion.c */
+char *get_string(int num);
+unsigned int abs_value(int);
+int get_len_base(unsigned int num, unsigned int base);
+void fill_numbase_buff(unsigned int num, unsigned int base, char *buff, int buff_size);
+
 
 /* error.c */
 int error_with_usage(void);
 int failed_open(char *filename);
-int malloc_error(void);
-int unknown_op_error(char *opcode, unsigned int line_number);
+int allocation_error(void);
+int unknown_instruction(char *opcode, unsigned int line_number);
+int type_error(unsigned int line_number);
+
+
+/* push_pall */
+void push(stack_t **stack, unsigned int n);
+void pall(stack_t **stack, unsigned int line_number);
+
 
 /* run.c */
 void free_tokens(void);
-unsigned int token_arr_len(void);
+unsigned int token_len(void);
 int is_empty_line(char *line, char *delims);
 void (*get_op_func(char *opcode))(stack_t**, unsigned int);
 int execute_monty(FILE *script_fd);
 
-/* stack_functions.c */
-int init_stack(stack_t **stack);
+
+/* stack_function.c */
+int stack_initialisation(stack_t **stack);
 void free_stack(stack_t **stack);
+int check_mode(stack_t *stack);
 
 
 /* tokenization.c */
-char **strtow(char *str, char *delims);
+char **separate_words(char *str, char *delims);
+int is_delimiter(char ch, char *delims);
+int get_length(char *str, char *delims);
+int counts_words(char *str, char *delims);
+char *next_word(char *str, char *delims);
 
 #endif

@@ -22,22 +22,34 @@ int failed_open(char *file_name)
  *
  * Return: (EXIT_FAILURE) always.
  */
-int malloc_error(void)
+int allocation_error(void)
 {
 	fprintf(stderr, "Error: malloc failed\n");
 	return (EXIT_FAILURE);
 }
 
 /**
- * unknown_op_error - Prints unknown instruction error messages.
+ * unknown_instruction - Prints unknown instruction where 
  * @opcode: Opcode where error occurred.
- * @line_number: Line number in Monty bytecodes file where error occured.
+ * @line_number: Line number in Monty file
  *
- * Return: (EXIT_FAILURE) always.
+ * Return: EXIT_FAILURE
  */
-int unknown_op_error(char *opcode, unsigned int line_number)
+int unknown_instruction(char *opcode, unsigned int line_number)
 {
 	fprintf(stderr, "L%u: unknown instruction %s\n",
 		line_number, opcode);
+	return (EXIT_FAILURE);
+}
+
+/**
+ * type_error - Prints invalid type. must be an integer
+ * @line_number: Line number in Monty bytecodes file where error occurred.
+ *
+ * Return: (EXIT_FAILURE) always.
+ */
+int type_error(unsigned int line_number)
+{
+	fprintf(stderr, "L%u: usage: push integer\n", line_number);
 	return (EXIT_FAILURE);
 }

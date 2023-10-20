@@ -7,33 +7,64 @@
  */
 void push(stack_t **stack, unsigned int n)
 {
-	stack_t *new_node = malloc(sizeof(stack_t));
+	stack_t *tmp, *new;
+	int i;
 
-	if (new_node == NULL)
+	new = malloc(sizeof(stack_t));
+	if (new == NULL)
 	{
-		fprintf(stderr, "Error: malloc failed\n");
-		exit(EXIT_FAILURE);
+		set_argument_error(allocation_error());
+		return;
 	}
-	new_node->n = n;
-	new_node->prev = NULL;
-	new_node->next = *stack;
 
-	if (*stack != NULL)
-		(*stack)->prev = new_node;
-	*stack = new_node;
+	if (op_tokens[1] == NULL)
+	{
+		set_argument_error(type_error(n));
+		return;
+	}
+
+	for (i = 0; op_tokens[1][i]; i++)
+	{
+		if (op_tokens[1][i] == '-' && i == 0)
+			continue;
+		if (op_tokens[1][i] < '0' || op_tokens[1][i] > '9')
+		{
+			set_argument_error(type_error(n));
+			return;
+		}
+	}
+	new->n = atoi(op_tokens[1]);
+
+	if (check_mode(*stack) == STACK) /* STACK mode insert at front */
+	{
+		tmp = (*stack)->next;
+		new->prev = *stack;
+		new->next = tmp;
+		if (tmp)
+			tmp->prev = new;
+		(*stack)->next = new;
+	}
+	else /* QUEUE mode insert at end */
+	{
+		tmp = *stack;
+		while (tmp->next)
+			tmp = tmp->next;
+		new->prev = tmp;
+		new->next = NULL;
+		tmp->next = new;
+	}
 }
+
 /**
  * pall - This function takes a pointer to the top of the stack
  * @stack: this is the stack
  * @line_number: This helps for error message handling
  */
-void pall(stack_t **stack, unsigned int line_number)
+void pall(stack_t **stack, unsigned int line_number __attribute__((unused)))
 {
-	stack_t *tmp;
-	(void)line_number;
-	tmp = *stack;
+	stack_t *tmp = (*stack)->next;
 
-	while (tmp != NULL)
+	while (tmp)
 	{
 		printf("%d\n", tmp->n);
 		tmp = tmp->next;
