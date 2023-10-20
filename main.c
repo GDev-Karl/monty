@@ -44,7 +44,11 @@ int main(void)
 #include <sys/stat.h>
 #include <fcntl.h>
 
+<<<<<<< HEAD
 char **op_tokens = NULL;
+=======
+op_toks = NULL;
+>>>>>>> 868c8de093eb26c5344c640be2faca079b901972
 
 /**
  * main - the entry point for Monty Interp
