@@ -12,32 +12,35 @@ char *next_word(char *str, char *delims);
  * @str: string to seperate into words
  * @delims: delimitors to use to delimit words
  *
- * Return: 2D array of pointers to each word
+ * Return: an array with these words
  */
 
 char **separate_words(char *str, char *delims)
 {
 	char **words = NULL;
-	int wc, wordLen, n, i = 0;
+	int number_words, len_word, n, i = 0;
 
+	/* pointetr is NULL or str is empty*/
 	if (str == NULL || !*str)
 		return (NULL);
-	wc = counts_words(str, delims);
+	number_words = counts_words(str, delims);
 
-
-	if (wc == 0)
+	if (number_words == 0)
 		return (NULL);
-	words = malloc((wc + 1) * sizeof(char *));
+
+	words = malloc((number_words + 1) * sizeof(char *));
+
 	if (words == NULL)
 		return (NULL);
-	while (i < wc)
+
+	while (i < number_words)
 	{
-		wordLen = get_length(str, delims);
+		len_word = get_length(str, delims);
 		if (is_delimiter(*str, delims))
 		{
 			str = next_word(str, delims);
 		}
-		words[i] = malloc((wordLen + 1) * sizeof(char));
+		words[i] = malloc((len_word + 1) * sizeof(char));
 		if (words[i] == NULL)
 		{
 			while (i >= 0)
@@ -49,7 +52,7 @@ char **separate_words(char *str, char *delims)
 			return (NULL);
 		}
 		n = 0;
-		while (n < wordLen)
+		while (n < len_word)
 		{
 			words[i][n] = *(str + n);
 			n++;

@@ -62,7 +62,7 @@ int type_error(unsigned int line_number);
 
 
 /* push_pall */
-void push(stack_t **stack, unsigned int n);
+void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
 
 
