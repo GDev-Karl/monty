@@ -70,3 +70,18 @@ void pall(stack_t **stack, unsigned int line_number __attribute__((unused)))
 		tmp = tmp->next;
 	}
 }
+/**
+ * pint - This will print the value on top of the stack
+ * @stack: This is a pointer to the stack
+ * @line_number: This is the line number
+ */ 
+void pint(stack_t **stack, unsigned int line_number)
+{
+	if ((*stack)->next == NULL)
+	{
+		set_argument_error(ErrorOfPint(line_number));
+		return;
+	
+	}
+	printf("%d\n", (*stack)->next->n);
+}

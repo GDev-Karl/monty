@@ -59,3 +59,13 @@ int type_error(unsigned int line_number)
 	fprintf(stderr, "L%u: usage: push integer\n", line_number);
 	return (EXIT_FAILURE);
 }
+/**
+ * ErrorOfPint - This print error message for the stack
+ * Return: It will return failure
+ * @line_number: THis is the line number
+ */
+int ErrorOfPint(unsigned int line_number)
+{
+	fprintf(stderr, "L%u: can't pint, stack empty", line_number);
+	return (EXIT_FAILURE);
+}
