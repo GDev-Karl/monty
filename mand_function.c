@@ -75,7 +75,7 @@ void pall(stack_t **stack, unsigned int line_number __attribute__((unused)))
  * pint - This will print the value on top of the stack
  * @stack: This is a pointer to the stack
  * @line_number: This is the line number
- * /
+ */
 void pint(stack_t **stack, unsigned int line_number)
 {
 	if ((*stack)->next == NULL)
