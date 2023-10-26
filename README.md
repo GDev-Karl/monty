@@ -65,5 +65,5 @@ Refer to the source code for a complete list of supported commands.
 
 ## Authors
 
-    Karl -> https://github.com/GDev-Karl
-    Wisdom -> https://github.com/Echewis
+### Karl(Me) -> https://github.com/GDev-Karl
+### Wisdom -> https://github.com/Echewis
