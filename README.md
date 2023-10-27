@@ -100,7 +100,7 @@ Refer to the source code for a complete list of supported commands.
 ## Authors
 
 [Karl](https://www.linkedin.com/in/karl-gerard/) | [Twitter](https://twitter.com/Karl_Gerard_)
-| [GitHub](https://github.com/)
+| [GitHub](https://github.com/GDev-Karl)
 
 [Wisdom]() | [Twitter]()
 | [GitHub](https://github.com/Echewis)
