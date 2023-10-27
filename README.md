@@ -102,5 +102,5 @@ Refer to the source code for a complete list of supported commands.
 [Karl](https://www.linkedin.com/in/karl-gerard/) | [Twitter](https://twitter.com/Karl_Gerard_)
 | [GitHub](https://github.com/GDev-Karl)
 
-[Wisdom]() | [Twitter]()
+[Wisdom](https://www.linkedin.com/in/wisdom-mmaduabuchi-1728b2247?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app) | [Twitter](https://x.com/echewis24?t=IfpIiUdyXEjWB3Cwa3NLCw&s=08)
 | [GitHub](https://github.com/Echewis)
